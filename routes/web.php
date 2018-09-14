@@ -10,7 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('wellcome',function(){
+	return view('welcome');
+});
 
+// Home
 Route::get("home", function(){
 	return view ("home.home_page.home");
 	})->name('home');
@@ -29,6 +33,7 @@ Route::group(['prefix'=>'home'],function(){
 	});
 });
 
+// Admin
 Route::get("admin", function(){
 	return view ("admin.dashboard.content");
 	})->name('admin');
