@@ -10,43 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('wellcome','mencontroller@test');
 
-Route::get("home", function(){
-	return view ("home.home_page.home");
-	})->name('home');
-
-Route::group(['prefix'=>'home'],function(){
-	Route::get('sign_up',function(){
-		return view('home.login.sign_up');
-	});
-	Route::get('sign_in',function(){
-		return view('home.login.sign_in');
-	});
-
-	Route::group(['prefix'=>'women'],function(){
-		Route::get('list','mencontroller@getlist');
-		
-	});
+// Home
+Route::get('/',function(){
+	return view('welcome');
 });
 
-Route::get("admin", function(){
-	return view ("admin.dashboard.content");
-	})->name('admin');
+Route::get('chat','ChatController@chat');
+Route::post('send','ChatController@send');
 
-Route::group(['prefix'=>'admin'],function(){
-	Route::get('sign_in',function(){
-		return view('admin.login.sign_in');
-	});
+Auth::routes();
 
-	Route::group(['prefix'=>'table'],function(){
-		Route::get('user',function(){
-			return view('admin.table.user.list');
-		});
-		Route::get('product',function(){
-			return view('admin.table.product.list');
-		});
-	});
-});
-
-
-
+Route::get('/home', 'HomeController@index')->name('home');

@@ -144,7 +144,7 @@
 						<div class="col-md-6">
 							<!-- MULTI CHARTS -->
 							<div class="panel">
-								<div class="panel-heading">
+								<div class="panel-heading" style="background: yellow">
 									<h3 class="panel-title">Projection vs. Realization</h3>
 									<div class="right">
 										<button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
