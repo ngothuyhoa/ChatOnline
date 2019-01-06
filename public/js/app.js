@@ -24878,6 +24878,15 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
             messages: [],
             user: [],
             color: []
+        },
+        typing: ''
+    },
+
+    watch: {
+        message: function message() {
+            Echo.private('chat').whisper('typing', {
+                name: this.message
+            });
         }
     },
 
@@ -24909,6 +24918,12 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
             _this2.chat.messages.push(e.message);
             _this2.chat.color.push('success');
             _this2.chat.user.push(e.user);
+        }).listenForWhisper('typing', function (e) {
+            if (e.name != '') {
+                _this2.typing = 'typing...';
+            } else {
+                _this2.typing = '';
+            }
         });
     }
 });

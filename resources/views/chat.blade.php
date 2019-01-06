@@ -15,7 +15,7 @@
 <body>
 	<div class="container">
 		<div class="row" id="app">
-			<div class="offset-4 col-4">
+			<div class="offset-1 col-11 offset-sm-1 col-sm-6 offset-md-3 col-md-6">
 				<li class="list-group-item active">Chat Room</li>
 				<ul class="list-group" v-chat-scroll>
 				  	<message
@@ -27,6 +27,7 @@
 				  		@{{ value }}
 				  	</message>
 				</ul>
+				<div class="badge badge-pill badge-primary">@{{ typing }}</div>
 				<input type="text" class="form-control" placeholder="Type your message here..." v-model="message" @keyup.enter="send" name="">	
 			</div>
 		</div>
